@@ -5,29 +5,30 @@
 #include <cstdlib>
 using namespace std;
 
-int leftInBag, randomnumber;
 string bag;
 
 void init() {
 	bag = "OISZLJT";
-	leftInBag = 7;
 }
 
 char draw() {
+	int randomNumber;
 	char result;
-	if (leftInBag == 0) {
+	if (bag.length() == 0) {
 		init();
 	}
-	randomnumber = rand() % leftInBag;
-	result = bag.at(randomnumber);
-	bag.erase(bag.begin()+randomnumber);
-	leftInBag--;
+	randomNumber = rand() % bag.length();
+	result = bag.at(randomNumber);
+	bag.erase(bag.begin()+randomNumber);
 	return result;
 }
 
 int main() {
 	srand(time(NULL));
 	for (int i = 0; i < 50; i++) {
+		if (i % 7 == 0) {
+			cout << " ";
+		}
 		printf("%c", draw());
 	}
 	cout << endl;

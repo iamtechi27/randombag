@@ -29,7 +29,7 @@ int main() {
 		if (i % 7 == 0) {
 			cout << " ";
 		} //if (i % 7 == 0)
-		printf("%c", draw());
+		cout << draw();
 	} //for (int i < 50)
 	cout << endl;
 }
